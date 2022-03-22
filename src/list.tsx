@@ -60,31 +60,45 @@ function List() {
         <>
             <div className="main_div">
                 <div className="child_div">
-                    <figcaption>Add your list here</figcaption>
+                    <figcaption>Add Your List Here</figcaption>
+
                     <div className="addItems">
-                        <input type="text" placeholder="add items" value={inputData}
-                            onChange={(e) => setInputData(e.target.value)} />
+                        <input className="text" type="text" placeholder=" Add items ..." value={inputData}
+                            onChange={(e) => setInputData(e.target.value)} /><br /><br />
                         {
-                            isEdited ? <button type="button" onClick={addItem}>Update</button> :
-                                <button type="button" onClick={addItem}>Add</button>
-                        }
-
-                    </div>
-
-                    <div className="showItems">
-                        {
-                            items.map((elem, index) => {
-                                return <div className="eachItems" key={index}>
-                                    <h3>{elem}</h3>
-                                    <button type="button" onClick={() => editItem(index)}>Edit</button>
-                                    <button type="button" onClick={() => deleteItem(index)}>Delete</button>
-                                </div>
-                            })
+                            isEdited ? <button className="btn" type="button" onClick={addItem}>UPDATE</button> :
+                                <button className="btn" type="button" onClick={addItem}>ADD</button>
                         }
 
                     </div>
                 </div>
             </div>
+
+            <br />
+
+           {items.length ? <div className="second_div">
+                <div className="childd_div">
+                    <figcaption>ToDo List</figcaption>
+                    <div className="showItems">
+                        <div className="eachItems">
+                            <ol className="ol">
+                                {items.map((elem, index) => {
+                                    return (
+                                        <li className="li">
+                                            <div className="li-list">
+                                            <h3>{elem}</h3>
+                                            <button className="btn list-btn" type="button" onClick={() => editItem(index)}>EDIT</button>
+                                            <button className="btn list-btn" type="button" onClick={() => deleteItem(index)}>DELETE</button>
+                                            </div>
+                                        </li>
+                                    )
+                                })
+                                }
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>: <></>}
         </>
     )
 }

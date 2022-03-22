@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 import ToDoApp from './todoApp';
 import List from './list';
 import Example from './hooks/effect';
@@ -9,6 +9,7 @@ import TextInputWithFocusButton from './hooks/useref';
 import LoginControl from './hooks/login';
 import MyForm from './hooks/form';
 import Calculator from './hooks/calculator';
+import Index from './Show forms';
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
      {/* <TextInputWithFocusButton/> */}
      {/* <LoginControl/> */}
      {/* <MyForm/> */}
-     <Calculator/>
+     {/* <Calculator/> */}
+     <Index/>
     </div>
   );
 }
