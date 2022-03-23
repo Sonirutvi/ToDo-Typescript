@@ -1,0 +1,16 @@
+.main_div{
+    background-color: bisque;
+    height: fit-content;
+    width: fit-content;
+    margin-left: 40%;
+    margin-top: 20px;
+    .child_div{
+        width: 300px;
+        text-align: center;
+    }
+}
+.btn{
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+}

@@ -1,0 +1,98 @@
+$myFont: Georgia, 'Times New Roman', Times, serif;
+
+.btn{
+    font-family: $myFont;
+    background-color:rgb(255, 69, 79);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+}
+.main_div{
+    background-color:#c7c7c7;
+    border-radius: 10px;
+    margin-left: 40%;
+    margin-top: 20px;
+    width: 200px;
+
+    .child_div{
+        height: 120px;
+        border-radius: 10px;
+        border-color: red;
+        border-style:solid;
+        border-width: 2;
+
+        figcaption{
+            font-weight: bold;
+            font-size:20px;
+            font-family:$myFont;
+            margin-top: 10px;
+            margin-left: 15px;
+        }
+        .addItems{
+            margin-top: 10px;
+            text-align: center;
+
+            .text{
+                border-radius: 5px;
+                border: none;
+                background-color: whitesmoke;
+                color:black;
+            }
+        }
+        
+        
+    }
+}
+
+.second_div{
+    background-color: #c7c7c7;
+    border-radius: 10px;
+    width: fit-content;
+    margin-left: 40%;
+
+    .childd_div{
+        height: fit-content;
+        border-radius: 10px;
+        border-color: red;
+        border-style:solid;
+        border-width: 2;
+
+        figcaption{
+            font-weight: bold;
+            font-size:20px;
+            font-family:$myFont;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .showItems{
+            
+            .eachItems{
+                text-align: center;
+                ol{
+                   margin: 0;
+                    li{
+                        margin-right: 40px;
+                        .li-list{
+                            display: flex;
+                            h3{
+                                margin: 0;
+                                margin-top: 20px;
+                                font-family:$myFont;
+                            }
+                            .list-btn{
+                                margin-top: 23px;
+    margin-left: 11px;
+                            }
+                        }
+                    }
+                    li:last-child{
+                        margin-bottom: 10px;
+                    }
+                }
+                
+            }
+        }
+    }    
+}
