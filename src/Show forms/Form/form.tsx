@@ -1,43 +1,24 @@
+import { ErrorMessage, Field, Formik, Form } from "formik";
 import { useState } from "react";
+import * as Yup from 'yup';
 
-function Form({ setFormData }: any) {
+const FillForm = () => {
 
-    const [fname, setFname] = useState("");
-    const [lname, setLname] = useState("")
-    const [country, setCountry] = useState("")
-    const [state, setState] = useState("")
-    const [city, setCity] = useState("")
-    const [post1, setPost1] = useState("")
-    const [post2, setPost2] = useState("")
-    const [post3, setPost3] = useState("")
-    const [gender, setGender] = useState("")
-
-
-    const handleClick = (e: any) => {
-        e.preventDefault();
-    
-        let data;
-        data = [{
-            firstName: fname,
-            lastName: lname,
-            address: {
-                country: country,
-                state: state,
-                city: city,
-            },
-            post: {
-                post1: post1,
-                post2: post2,
-                post3: post3,
-            },
-            gender: gender
-        }]
-        setFormData(data)
+    const handleSubmit = ({ values }: any) => {
+        console.log(values, "val");
     }
+
+    const formValidationSchema = Yup.object().shape({
+        firstName: Yup.string().required('Name is required'),
+        lastName: Yup.string().required('Name is required'),
+        Country: Yup.string().required("Country Required"),
+        State: Yup.string().required("Country Required"),
+        City: Yup.string().required("Country Required")
+    })
 
     return (
         <>
-            <form className="main_div">
+            {/* <form className="main_div">
                 <div className="child_div">
                     <div className="fInput">
                         <label className="fname">First Name:</label> <input type="text" onChange={(e) => setFname(e.target.value)} value={fname} placeholder="Enter Your First Name" />
@@ -72,10 +53,74 @@ function Form({ setFormData }: any) {
                         <input type="radio" onChange={(e) => setGender(e.target.value)} value="Female" name="gender" />Female
                     </div>
 
-                    <button className="btn" onClick={(e) => handleClick(e)}> Submit</button>
                 </div>
             </form>
+             */}
+            <Formik
+                initialValues={{ firstName: '', lastName: '', Addrees:"", Addrees1:"", Addrees2:"", Checked:"", Checked1:"", Checked2:"", picked:'' }}
+                validationSchema={formValidationSchema}
+                onSubmit={values => handleSubmit(values)}>
+                <Form>
+                    <div>
+                        <Field name="firstName" type="text" placeholder="First Name" />
+                        <p className="text-danger"><ErrorMessage name="firstName"/></p>
+                    </div>
+
+                    <div>
+                        <Field name="lastName" type="text" placeholder="Last Name" />
+                        <p className="text-danger"><ErrorMessage name="lastName"/></p>
+                    </div>
+
+                    <div>
+                        <Field as="select" name="Country" className="form-inline">
+                            <option value="Country" disabled >Country</option>
+                            <option value="India">India</option>
+                            <option value="USA">USA</option>
+                        </Field>
+                        <p className="text-danger"><ErrorMessage name="Country"/></p>
+                       
+                        <Field as="select" name="State" className="form-inline">
+                            <option value="State" >State</option>
+                            <option value="Gujarat">Gujarat</option>
+                        </Field>
+                        <p className="text-danger"><ErrorMessage name="State"/></p>
+
+                        <Field as="select" name="City" className="form-inline">
+                            <option value="City" >City</option>
+                            <option value="Ahmedabad">Ahmedabad</option>
+                        </Field>
+                        <p className="text-danger"><ErrorMessage name="City"/></p>
+
+                    </div>
+
+                    <div>
+                        <label className="form-inline">
+                            <Field type="checkbox" name="Checked" value="One" />Frontend(FE)
+                        </label>
+                        <label className="form-inline">
+                            <Field type="checkbox" name="Checked1" value="One" />Backend(BE)
+                        </label>
+                        <label className="form-inline">
+                            <Field type="checkbox" name="Checked2" value="One" />Tester(T)
+                        </label>
+                    </div>
+
+                    <div>
+                        <label>
+                            <Field type="radio" name="picked" value="One" /> Male
+                        </label>
+                        <br />
+                        <label>
+                            <Field type="radio" name="picked" value="Two" /> Female
+                        </label>
+                    </div>
+                    <div>
+                        <button type="submit" className="btn btn-primary">Submit</button>
+                    </div>
+
+                </Form>
+            </Formik>
         </>
     )
 }
-export default Form
+export default FillForm
