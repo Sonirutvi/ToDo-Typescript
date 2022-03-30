@@ -12,10 +12,13 @@ const FillForm = () => {
         firstName: Yup.string().required('Name is required'),
         lastName: Yup.string().required('Name is required'),
         Country: Yup.string().required("Country Required"),
-        State: Yup.string().required("Country Required"),
-        City: Yup.string().required("Country Required")
+        State: Yup.string().required("State Required"),
+        City: Yup.string().required("City Required"),
+        Checked: Yup.array().min(1).required("Required"),
+        gender: Yup.string().oneOf(["one", "two"]).required("Required")
     })
 
+    
     return (
         <>
             {/* <form className="main_div">
@@ -57,61 +60,55 @@ const FillForm = () => {
             </form>
              */}
             <Formik
-                initialValues={{ firstName: '', lastName: '', Addrees:"", Addrees1:"", Addrees2:"", Checked:"", Checked1:"", Checked2:"", picked:'' }}
+                initialValues={{ firstName: '', lastName: '', Country: "", State: "", City: "", Checked: [], gender: '' }}
                 validationSchema={formValidationSchema}
                 onSubmit={values => handleSubmit(values)}>
                 <Form>
                     <div>
                         <Field name="firstName" type="text" placeholder="First Name" />
-                        <p className="text-danger"><ErrorMessage name="firstName"/></p>
+                        <p className="text-danger"><ErrorMessage name="firstName" /></p>
                     </div>
 
                     <div>
                         <Field name="lastName" type="text" placeholder="Last Name" />
-                        <p className="text-danger"><ErrorMessage name="lastName"/></p>
+                        <p className="text-danger"><ErrorMessage name="lastName" /></p>
                     </div>
 
                     <div>
                         <Field as="select" name="Country" className="form-inline">
-                            <option value="Country" disabled >Country</option>
+                            <option value="Country" >Country</option>
                             <option value="India">India</option>
                             <option value="USA">USA</option>
                         </Field>
-                        <p className="text-danger"><ErrorMessage name="Country"/></p>
-                       
+                        <p className="text-danger"><ErrorMessage name="Country" /></p>
+
                         <Field as="select" name="State" className="form-inline">
                             <option value="State" >State</option>
                             <option value="Gujarat">Gujarat</option>
                         </Field>
-                        <p className="text-danger"><ErrorMessage name="State"/></p>
+                        <p className="text-danger"><ErrorMessage name="State" /></p>
 
                         <Field as="select" name="City" className="form-inline">
                             <option value="City" >City</option>
                             <option value="Ahmedabad">Ahmedabad</option>
                         </Field>
-                        <p className="text-danger"><ErrorMessage name="City"/></p>
-
+                        <p className="text-danger"><ErrorMessage name="City" /></p>
                     </div>
 
                     <div>
                         <label className="form-inline">
                             <Field type="checkbox" name="Checked" value="One" />Frontend(FE)
-                        </label>
-                        <label className="form-inline">
-                            <Field type="checkbox" name="Checked1" value="One" />Backend(BE)
-                        </label>
-                        <label className="form-inline">
-                            <Field type="checkbox" name="Checked2" value="One" />Tester(T)
+                            <Field type="checkbox" name="Checked" value="Two" />Backend(BE)
+                            <Field type="checkbox" name="Checked" value="Three" />Tester(T)
+                            <p className="text-danger"><ErrorMessage name="Checked" /></p>
                         </label>
                     </div>
 
                     <div>
                         <label>
-                            <Field type="radio" name="picked" value="One" /> Male
-                        </label>
-                        <br />
-                        <label>
-                            <Field type="radio" name="picked" value="Two" /> Female
+                            <Field type="radio" name="gender" value="one" /> Male
+                            <Field type="radio" name="gender" value="two" /> Female
+                            <p className="text-danger"><ErrorMessage name="gender" /></p>
                         </label>
                     </div>
                     <div>
