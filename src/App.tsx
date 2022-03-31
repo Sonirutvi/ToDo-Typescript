@@ -11,6 +11,8 @@ import MyForm from './hooks/form';
 import Calculator from './hooks/calculator';
 import Index from './Show forms';
 import { Button } from 'react-bootstrap';
+import { Counter } from './ReduxToolkit/counter';
+import './ReduxToolkit/counter.scss';
 
 
 function App() {
@@ -25,7 +27,8 @@ function App() {
      {/* <LoginControl/> */}
      {/* <MyForm/> */}
      {/* <Calculator/> */}
-     <Index/>
+     {/* <Index/> */}
+     <Counter/>
     </div>
   );
 }

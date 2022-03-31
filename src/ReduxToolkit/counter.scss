@@ -1,0 +1,33 @@
+.btn_0, .btn_1,.btn_2, .btn_3, .btn_4, .btn_5, .btn_6, .btn_7, .btn_8, .btn_9, .btn_plus, .btn_minus, .btn_mult, .btn_divide, .btn_dot, .btn_mod {
+    height: 50px;
+    width: 50px;
+    border: none;
+    border-radius: 25px;
+    background-color: gray;
+}
+
+body{
+    text-align: center;
+}
+
+.main_div{
+    margin-left: 40%;
+    height: fit-content;
+    width:  fit-content;
+    border-color: black;
+    border-width: 1mm;
+    border-style:ridge;
+
+    .text_div{
+        .text_div1{
+            border: 1px solid;
+            width: 200px;
+            height: 30px;
+        }
+    }
+    .btn{
+        width:100px;
+        border: none;
+        border-radius: 10px;
+    }
+}
