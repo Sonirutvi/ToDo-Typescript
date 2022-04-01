@@ -6,9 +6,10 @@ import { decrement, increment, add, remove , calculate, CalcAns} from "./counter
 
 export function Counter() {
     const count = useSelector((state: RootState) => state.counter.value)
+    const answer = useSelector((state: RootState)=> state.counter.CalcAns)
     const dispatch = useDispatch()
     const [value, setValue] = useState(0)
-    const [answer, setAnswer] = useState(0)
+    // const [answer, setAnswer] = useState(0)
     const [showValue, setShowValue] = useState("")
     const [removeValue, setRemoveValue] = useState(0)
 
@@ -21,10 +22,11 @@ export function Counter() {
     }
     const calculatee = () => {
         setShowValue(eval(showValue).toString())
+        dispatch(CalcAns())
     }
     return (
         <>
-            {/* <div>
+            <div>
                 <button aria-label="Increment value" onClick={() => dispatch(increment())}>Increment</button>
                 <span>{count}</span>
                 <button aria-label="Decrement value" onClick={() => dispatch(decrement())}>Decrement</button>
@@ -33,12 +35,12 @@ export function Counter() {
                 <input type="text" onChange={(e) => setRemoveValue(Number(e.target.value))} />
                 <button aria-label="remove value" onClick={() => dispatch(remove(removeValue))}>Delete</button>
             </div>
-            <br /> */}
+            <br />
 
-            <div className="main_div">
-                {/* <div>
+            {/* <div className="main_div">
+                <div>
                     {answer}
-                </div> */}
+                </div>
                 <div className="text_div">
                     <input type="text" placeholder="0" className="text_div1" value={showValue} onChange={handleClick} />
                 </div>
@@ -75,7 +77,7 @@ export function Counter() {
                     <button type="button" className="btn btn-primary" onClick={handleClear}>AC</button>
                     <button type="button" className="btn btn-primary" onClick={calculatee}>=</button>
                 </div>
-            </div>
+            </div> */}
         </>
     )
 }
