@@ -13,6 +13,7 @@ import Index from './Show forms';
 import { Button } from 'react-bootstrap';
 import { Counter } from './ReduxToolkit/counter';
 import './ReduxToolkit/counter.scss';
+import Calc from './ReduxToolkit/exp';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
      {/* <Calculator/> */}
      {/* <Index/> */}
      <Counter/>
+     {/* <Calc/> */}
     </div>
   );
 }
