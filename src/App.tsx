@@ -14,6 +14,7 @@ import { Button } from 'react-bootstrap';
 import { Counter } from './ReduxToolkit/counter';
 import './ReduxToolkit/counter.scss';
 import Calc from './ReduxToolkit/exp';
+import Todo from './ToDoToolkit/todolist';
 
 
 function App() {
@@ -29,8 +30,9 @@ function App() {
      {/* <MyForm/> */}
      {/* <Calculator/> */}
      {/* <Index/> */}
-     <Counter/>
+     {/* <Counter/> */}
      {/* <Calc/> */}
+     <Todo/>
     </div>
   );
 }
